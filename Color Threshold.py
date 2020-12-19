@@ -51,8 +51,11 @@ def ReturnColorThresholdedPicture(PICPATH , L_min , L_max , a_min , a_max , b_mi
         if Filt_List[i] == "stop":
             ImageProcessor.invert()
 
-    imp3 = ImageCalculator.run(imp0, imp1, "and create")
-    imp4 = ImageCalculator.run(imp3,imp2, "and create")
+    #コメントアウトした、imgculcは動かなくなくなった,謎
+    #imp3 = ImageCalculator.run(imp0, imp1, "and create")
+    #imp4 = ImageCalculator.run(imp3,imp2, "and create")
+    imp3 = ImageCalculator().run("and create",imp0, imp1)
+    imp4 = ImageCalculator().run("and create",imp3,imp2)
 
     imp3.show()
     imp4.show()
@@ -69,3 +72,7 @@ def ReturnColorThresholdedPicture(PICPATH , L_min , L_max , a_min , a_max , b_mi
     imp3.close()
     
     return imp4
+
+PicPath = "C:\Users\For  Programming\Documents\img016_tru.jpg"
+imp = ReturnColorThresholdedPicture(PicPath,80,255,115,145,145,175)
+imp.show()
