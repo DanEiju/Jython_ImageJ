@@ -31,7 +31,7 @@ def AnalyzeParticle(IMP):
 
 
     #最後に全ての結果をCloseする。
-　　#写真を先に消さないとバグる。
+    #写真を先に消さないとバグる。
     IMP.close()
     rm.close()
     rt.reset()
